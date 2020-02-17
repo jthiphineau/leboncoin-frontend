@@ -8,7 +8,7 @@ const Offers = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://leboncoin-backend-jt.herokuapp.com/"
+        "https://leboncoin-api.herokuapp.com/api/offer/with-count"
       );
       setData(response.data);
 

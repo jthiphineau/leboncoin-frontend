@@ -11,7 +11,7 @@ const Offer = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://leboncoin-backend-jt.herokuapp.com/offer/" + id
+        "https://leboncoin-api.herokuapp.com/api/offer/" + id
       );
       setData(response.data);
       setIsLoading(false);
@@ -26,7 +26,16 @@ const Offer = () => {
         <p>En cours de chargement ...</p>
       ) : (
         <div>
-          <span>{data.title}</span>
+          <div>
+            <img src={data.pictures} alt={data.title} />
+            <p>{data.title}</p>
+            <p>{data.price} €</p>
+            <p>{data.created}</p>
+            <p>{data.description}</p>
+          </div>
+          <div>
+            <p>{data.creator.account.username}</p>
+          </div>
         </div>
       )}
     </div>
